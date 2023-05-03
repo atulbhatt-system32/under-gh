@@ -1,5 +1,5 @@
 function addFooter() {
-    const TEMPLATE = `
+  const TEMPLATE = `
   <div class="direction-column padding-xl gap-xl">
     <a href="/">
       <img src="https://weareunder.design/images/under-footer.svg" style="width: 102px;">
@@ -31,13 +31,24 @@ function addFooter() {
   </div>
   `;
 
-    class UnderFooter extends HTMLElement {
-        constructor() {
-            super();
-            this.innerHTML = TEMPLATE;
-        }
+  class UnderFooter extends HTMLElement {
+    constructor() {
+      super();
+      this.innerHTML = TEMPLATE;
     }
-    customElements.define("under-footer", UnderFooter);
+  }
+  customElements.define("under-footer", UnderFooter);
+}
+
+function addMetaImage() {
+  const getCurrentPage = window.location;
+  const imageUrl = getCurrentPage.origin + getCurrentPage.pathname + "0.png";
+  const metaImage = document.createElement("meta");
+  metaImage.setAttribute("property", "og:image");
+  metaImage.setAttribute("content", imageUrl);
+
+  document.head.appendChild(metaImage);
 }
 
 addFooter();
+addMetaImage();
