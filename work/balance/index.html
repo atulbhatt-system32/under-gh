@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+  <script>
+    function addMetaImage() {
+      const getCurrentPage = window.location;
+      const imageUrl = getCurrentPage.origin + getCurrentPage.pathname + "0.png";
+      const metaImage = document.createElement("meta");
+      metaImage.setAttribute("property", "og:image");
+      metaImage.setAttribute("content", imageUrl);
+
+      document.head.appendChild(metaImage);
+    }
+
+    addMetaImage();
+  </script>
   <script defer="" data-domain="weareunder.design" src="https://plausible.io/js/plausible.js"></script>
   <meta charset="UTF-8" />
 
