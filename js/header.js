@@ -1,18 +1,10 @@
 function addHeader() {
-  const imagePath = `${location.origin}/images/under-header-logo.svg`;
-  const workPath = `${location.origin}/#work-section`;
   const TEMPLATE = `
-  <div class="flex" >
-        <a class="logo padding-xl" href="/">
-            <img src="${imagePath}" />
-        </a>
-        <div class="panel padding-xl gap-xs" style="color:white;position:fixed; right:0;z-index:999;  mix-blend-mode: difference;">
-            <a class="header-link" href=${workPath}><h4>Work</h4></a>
-            <a class="header-link" href="https://store.weareunder.design"><h4>Store</h4></a>
-            <a class="header-link" href="mailto:hello@weareunder.design"><h4>Contact</h4></a>
-        </div>
-    </div>
-  `;
+      <a class="logo padding-xl mix-diff" href="/" style="position: fixed; z-index: 99;">
+        <img src="https://weareunder.design/images/under-header-logo.svg" class="desktop" alt="under header icon"/>
+        <img src="https://weareunder.design/images/under-header-logo-small.svg" class="mobile" alt="under header icon"/>
+      </a>
+    `;
 
   class UnderHeader extends HTMLElement {
     constructor() {
@@ -24,3 +16,20 @@ function addHeader() {
 }
 
 addHeader();
+
+const mediaQuery = window.matchMedia("(max-width: 992px)");
+mediaQuery.addEventListener("change", handleMediaQueryChange);
+handleMediaQueryChange(mediaQuery);
+
+function handleMediaQueryChange(mediaQuery) {
+  const mobileImg = document.querySelector("under-header img.mobile");
+  const desktopImg = document.querySelector("under-header img.desktop");
+
+  if (mediaQuery.matches) {
+    mobileImg.style.display = "block";
+    desktopImg.style.display = "none";
+  } else {
+    mobileImg.style.display = "none";
+    desktopImg.style.display = "block";
+  }
+}

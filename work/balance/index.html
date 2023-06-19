@@ -2,19 +2,6 @@
 <html lang="en">
 
 <head>
-  <script>
-    function addMetaImage() {
-      const getCurrentPage = window.location;
-      const imageUrl = getCurrentPage.origin + getCurrentPage.pathname + "0.png";
-      const metaImage = document.createElement("meta");
-      metaImage.setAttribute("property", "og:image");
-      metaImage.setAttribute("content", imageUrl);
-
-      document.head.appendChild(metaImage);
-    }
-
-    addMetaImage();
-  </script>
   <script defer="" data-domain="weareunder.design" src="https://plausible.io/js/plausible.js"></script>
   <meta charset="UTF-8" />
 
@@ -29,15 +16,12 @@
   <link rel="stylesheet" href="../../css/styles.css" />
 
   <meta property="og:title" content="Balance" />
-
+  <meta property="og:image" content="https://weareunder.design/work/balance/0.png" />
   <title>Balance</title>
 </head>
 
 <body>
-  <a class="logo padding-xl" href="/">
-    <img src="../../images/under-header-logo.svg" />
-
-  </a>
+  <under-header></under-header>
   <img src="./1.png" />
 
   <section class="padding-xl">
@@ -81,6 +65,7 @@
   <img src="./13.png" loading="lazy" />
 
   <under-footer> </under-footer>
+  <script src="../../js/header.js"></script>
   <script src="../../js/footer.js"></script>
 </body>
 

@@ -1,15 +1,15 @@
 function addFooter() {
   const TEMPLATE = `
-  <div class="direction-column padding-xl gap-xl">
+  <div class="row padding-xl gap-xl">
     <a href="/">
-      <img src="https://weareunder.design/images/under-footer.svg" style="width: 102px;">
+      <img src="https://weareunder.design/images/under-footer.svg" style="width: 102px;" alt="umder footer icon">
     </a>
     <h4 class="box">
       under creates high-quality,<br>
       well-designed, creative brands <br>
       and products for creative people.
     </h4>
-    <div class="direction-row">
+    <div class="column">
       <a href="https://store.weareunder.design/">
         <h4>Store</h4>
       </a>
@@ -20,7 +20,7 @@ function addFooter() {
       <h4>Instagram</h4>
     </a>
     </div>
-    <div class="direction-row">
+    <div class="column">
       <a href="https://store.weareunder.design/pages/newsletter" target="_blank">
         <h4>Newsletter</h4>
       </a>
@@ -40,15 +40,4 @@ function addFooter() {
   customElements.define("under-footer", UnderFooter);
 }
 
-function addMetaImage() {
-  const getCurrentPage = window.location;
-  const imageUrl = getCurrentPage.origin + getCurrentPage.pathname + "0.png";
-  const metaImage = document.createElement("meta");
-  metaImage.setAttribute("property", "og:image");
-  metaImage.setAttribute("content", imageUrl);
-
-  document.head.appendChild(metaImage);
-}
-
 addFooter();
-addMetaImage();
